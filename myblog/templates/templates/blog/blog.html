@@ -1,0 +1,22 @@
+{% load static %}
+<h1>Add blog</h1>
+<form action = "{% url 'templates:newblog'  %}" method = "post" class="needs-validation">
+  {% csrf_token %}
+  <div >
+    <label for="text">Title</label>
+    <input class="form-control" type = "text" name="title" id = "title" value = ""/>
+  </div>
+  <br/>
+  <div >
+    <label for="text">Body</label>
+    <input class="form-control" type = "text" name="body" id = "body" value = ""/>
+  </div>
+  <br/>
+  <div >
+    <label for="text">Created at</label>
+    <input class="form-control" type = "text" name="created_at" id = "created_at" value = ""/>
+  </div>
+  <br/>
+
+  <input type = "submit" value = "submit" />
+</form>

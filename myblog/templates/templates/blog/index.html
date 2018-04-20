@@ -1,0 +1,30 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'todo_demo/style.css' %}" />
+<h1>Blog</h1>
+<ul >
+  {% for item in blog_list%}
+  <li >
+    <div >
+      <p >Title: 
+        {{item.title}}
+      </p>
+      <p >Body:
+        {{item.body}}
+      </p>
+      <p >Created at:
+        {{item.created_at}}
+      </p>
+  </div>
+
+  <form action = "{% url 'templates:editblog' item.id  %}" method = "post">
+    {% csrf_token %}
+    <input type="submit" value="Edit"  />
+  </form>
+
+    </li>
+  {% endfor %}
+</ul>
+<form action = "{% url 'templates:createblog' %}" method = "post">
+  {% csrf_token %}
+  <input type="submit" value="Add"  />
+</form>

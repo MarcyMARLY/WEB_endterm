@@ -1,0 +1,26 @@
+{% load static %}
+<h1>Edit blog</h1>
+<form action = "{% url 'templates:save' id  %}" method = "post" class="needs-validation">
+  {% csrf_token %}
+  <div >
+    <label for="text">Title</label>
+    <input class="form-control" type = "text" name="title" id = "title" value = "{{title}}"/>
+  </div>
+  <br/>
+  <div >
+    <label for="text">Body</label>
+    <input class="form-control" type = "text" name="body" id = "body" value = "{{body}}"/>
+  </div>
+  <br/>
+  <div >
+    <label for="text">Created at</label>
+    <input class="form-control" type = "text" name="created_at" id = "created_at" value = "{{created_at}}"/>
+  </div>
+  <br/>
+
+  <input type = "submit" value = "submit" />
+</form>
+<form action = "{% url 'templates:delete' id %}" method = "post">
+  {% csrf_token %}
+  <input type = "submit" value = "Delete" />
+</form>
